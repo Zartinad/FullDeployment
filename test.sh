@@ -10,7 +10,7 @@ echo -n "What is the name of your dashboard folder: "
 read dashboardFolder
 echo "$dashboardFolder"
 
-cp -r $dashboardFodler ~/var/www/
+cp -r "$dashboardFolder" "~/var/www/"
 
 server_code="server {
         listen 80 default_server;
@@ -19,7 +19,7 @@ server_code="server {
         #...
         root /var/www/html;
         index index.php index.html index.htm index.nginx-debian.html;
-        server_name;
+        server_name $ip_address;
         location / {
                 proxy_pass http://localhost:3000;
                 proxy_http_version 1.1;
@@ -59,7 +59,7 @@ server_code="server {
         }
 }
 ## To track where nginx is redirecting the path location ##
-log_format requests    " \$request_filename ";
+log_format requests    \" \$request_filename \";
 access_log /var/log/nginx/access.log requests;
 "
 
