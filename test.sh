@@ -10,7 +10,10 @@ echo -n "What is the name of your dashboard folder: "
 read dashboardFolder
 echo "$dashboardFolder"
 
-cp -r "$dashboardFolder" "~/var/www/"
+cp -r "$dashboardFolder" "/var/www/"
+
+# Delete default server code
+sed -i  '21, $d'  /etc/nginx/sites-available/default
 
 server_code="server {
         listen 80 default_server;
@@ -46,7 +49,7 @@ server_code="server {
                 try_files  \$uri \$uri/ /index.html =404;
 	}
         location ^~ /static { #Open the css/index files for viewing
-                alias /var/www/$dashboardFodler/build/static;
+                alias /var/www/$dashboardFolder/build/static;
                 try_files \$uri =404;
         }
         location ^~ /frontend { #Host frontend on port 3001
