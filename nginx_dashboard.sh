@@ -68,3 +68,16 @@ access_log /var/log/nginx/access.log requests;
 
 # Append server code
 echo "$server_code" >> /etc/nginx/sites-available/default
+
+#Check if syntax is correct
+sudo nginx -t
+
+#Restart NGINX
+sudo service nginx restart
+sudo systemctl restart nginx
+
+#Check NGINX status
+sudo service nginx status
+
+#Allow NGINX to access the firewall
+sudo ufw allow 'Nginx HTTP'
