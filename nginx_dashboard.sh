@@ -76,8 +76,15 @@ sudo nginx -t
 sudo service nginx restart
 sudo systemctl restart nginx
 
-#Check NGINX status
-sudo service nginx status
+#Check NGINX status and store in txt folder
+sudo service nginx status > "nginxStatus.txt"
 
 #Allow NGINX to access the firewall
 sudo ufw allow 'Nginx HTTP'
+
+#Provide link address
+LINK="$ip_address/dashboard"
+
+echo "Dashboard available in \n$LINK\n"
+
+
