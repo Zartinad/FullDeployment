@@ -10,7 +10,8 @@ echo -n "What is the name of your dashboard folder: "
 read dashboardFolder
 echo "$dashboardFolder"
 
-cp -r "$dashboardFolder" "/var/www/"
+#Create soft link in /var/www/ folder so accessible
+sudo ln -s "$dashboardFolder" "/var/www/"
 
 # Delete default server code
 sed -i  '21, $d'  /etc/nginx/sites-available/default
