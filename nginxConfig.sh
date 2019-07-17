@@ -11,8 +11,6 @@ configFileName="main"
 configFile="/etc/nginx/sites-available/$configFileName"
 touch $configFile
 echo $configFile
-cat $configFile
-
 
 #Append 
 server_code="server {
@@ -75,6 +73,9 @@ sudo unlink /etc/nginx/sites-enabled/default
 
 #Check if syntax is correct
 sudo nginx -t
+
+#Copy folder
+sudo cp -r "$dashboardFolder" "/var/www/"
 
 #Restart NGINX
 sudo service nginx restart
