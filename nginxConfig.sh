@@ -66,7 +66,7 @@ access_log /var/log/nginx/access.log requests;
 echo "$server_code" >> configFile
 
 #Create link in site-enabled so it can be accessed and unlink default
-sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+sudo ln -s $configFile /etc/nginx/sites-enabled/
 sudo unlink /etc/nginx/sites-enabled/default
 
 #Check if syntax is correct
