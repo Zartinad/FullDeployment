@@ -8,7 +8,7 @@ dashboardFolder=$2
 #Note: We do not touch defualt incase we need it in the future. 
 #Note: 'main' is identifier for our configuration file. Could be anything 
 configFile="/etc/nginx/sites-available/main"
-touch configFile
+touch $configFile
 
 #Append 
 server_code="server {
