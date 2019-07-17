@@ -5,6 +5,12 @@ Run each file using sh. For example to run the installDependancies.sh file, type
 I make references to my react app mk_dashboard which you can check out here: https://github.com/Zartinad/mk_dashboard`
 
 # General Overview of Steps
+Run the steps below in the FullDeployment folder.
+
+* `git clone https://github.com/Zartinad/FullDeployment.git`
+* `cd FullDeployment`
+
+
 0. `git clone [react-project]`
 1. `sh installDependancies.sh`
 2. `sh dashboardBuild.sh [react-folder]`
