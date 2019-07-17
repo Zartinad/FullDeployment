@@ -78,6 +78,6 @@ sudo systemctl restart nginx
 sudo systemctl reload nginx
 
 #Provide link address
-LINK="$ip_address/dashboard"
+LINK="$ipAddress/dashboard"
 
 echo "Dashboard available in \n$LINK\n"
