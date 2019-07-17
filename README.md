@@ -11,6 +11,7 @@ Refer to mk_dashboard for reference of a react project.
 ![Alt text](Tutorial_Pictures/installDependancies.png?raw=true "Output of screen")
     When you access your website through a browser, the default NGINX website should appear:
 ![Alt text](Tutorial_Pictures/installDependanciesNGINX.png?raw=true "Output of screen")
+2. dashboardBuild.sh - This will create the production build folder your react app. Run it like `sh dashboardBuild.sh [dashboardFolder]`
 3. nginxConfig.sh - This will create a NGINX config file called main that would allow people to access the dashboard. Your react folder will also be copied /var/www/
 
     Run the command as `sh nginxConfig.sh [ipAddress] [dashboardFolder]` where `[ipAddress]` and `[dashboardFolder]`. 
