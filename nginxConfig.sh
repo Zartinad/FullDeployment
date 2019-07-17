@@ -10,6 +10,9 @@ dashboardFolder=$2
 configFileName="main"
 configFile="/etc/nginx/sites-available/$configFileName"
 touch $configFile
+echo $configFile
+cat $configFile
+
 
 #Append 
 server_code="server {
@@ -64,7 +67,7 @@ access_log /var/log/nginx/access.log requests;
 "
 
 # Replace NGINX config
-echo "$server_code" > configFile
+echo "$server_code" > $configFile
 
 #Create link in site-enabled so it can be accessed and unlink default
 sudo ln -s $configFile /etc/nginx/sites-enabled/
