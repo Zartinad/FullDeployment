@@ -2,4 +2,5 @@
 sudo apt install -y phpmyadmin
 sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 
-echo "phpmyadmin is now available to access :)"
+ipAddress=`wget http://ipecho.net/plain -O - -q ; echo`
+echo "phpMyAdmin available at: $ipAddress/phpmyadmin"
