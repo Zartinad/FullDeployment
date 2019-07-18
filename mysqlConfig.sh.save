@@ -1,0 +1,11 @@
+stty -echo
+printf "Password: "
+read password
+stty echo
+printf "\n"
+
+sqlquery="CREATE DATABASE live;
+        USE live;
+        CREATE USER 'app'@'%' IDENTIFIED WITH mysql_native_password BY '$password';
+        GRANT ALL PRIVILEGES ON \`live\`.* TO 'app'@'%';
+        exi $sqlquery

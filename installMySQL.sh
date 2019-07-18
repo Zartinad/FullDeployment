@@ -6,7 +6,7 @@ sudo apt install -y mysql-server
 mysql < ./databaseScripts/cleanSQL.sql
 
 #Create the schema meant for live application
-mysql < ./databaseScripts/schema.sql
+mysql < ./databaseScripts/setUpSchema.sql
 
 #Create password for root and user app
 sh ./databaseScripts/secureSQL.sh

@@ -15,7 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---Create database for live deployment and use that database schema
+##Create database for live deployment and use that database schema
 DROP DATABASE IF EXISTS live;
 CREATE DATABASE live;
 USE live;
