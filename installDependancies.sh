@@ -7,15 +7,6 @@ sudo apt install -y nginx
 sudo ufw allow 'Nginx HTTP'
 sudo ufw status
 
-#Install MySQL
-#sudo apt install mysql-server
-#sudo mysql_secure_installation
-
-#Install php-fpm, process manager
-sudo add-apt-repository -y universe
-sudo apt install -y php-fpm php-mysql
-
-
 #Update Ubuntu to download new versions of node properly.
 #This was due to a problem where ubuntu would download an 
 #outdated version of node that would not compile react properly
