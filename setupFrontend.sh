@@ -21,5 +21,5 @@ sed -i "/password/c\      password:'$passwordapp'," $path
 cd $serverfolder
 npm install
 
-pm2 start frontend-server.js
-pm2 log frontend-server
+pm2 start frontend_server.js
+pm2 log frontend_server

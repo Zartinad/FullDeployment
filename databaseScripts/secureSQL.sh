@@ -8,8 +8,8 @@ stty echo
 printf "\n"
 
 #Create user app with password
-mysql -e "CREATE USER app IDENTIFIED BY '$passwordapp';"
-mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY '$passwordroot';"
+mysql -e "CREATE USER 'app'@'%' IDENTIFIED WITH mysql_native_password BY '$passwordapp';"
+mysql -e "GRANT ALL PRIVILEGES ON live.* TO 'app'@'%';FLUSH PRIVILEGES;"
 #Change root to have password
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwordroot'; FLUSH PRIVILEGES;"
 
