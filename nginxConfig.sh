@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #Save developer-specific information
-ipAddress=$1
-dashboardFolder=$2
+ipAddress=`wget http://ipecho.net/plain -O - -q ; echo`
+dashboardFolder=$1
 
 #Create main configuration file
 #Note: We do not touch defualt incase we need it in the future. 
