@@ -2,8 +2,14 @@ backend=$1
 frontend=$2
 
 #Get public ip_address
-ip_address=`wget http://ipecho.net/plain -O - -q ; echo`
-echo $ip_address
+#ip_address=`wget http://ipecho.net/plain -O - -q ; echo`
+#echo $ip_address
+
+echo "Enter ip address of mysql: "
+read ipAddress
+
+echo "Enter user for mysql:"
+read user
 
 #Get password for user app
 stty -echo
@@ -14,8 +20,8 @@ printf "\n"
 
 cp ./sampleConfigs/sample-mysql.js mysql.js
 
-sed -i "/user/c\      user:'app',"  mysql.js
-sed -i "/host/c\      host:'$ip_address'," mysql.js
+sed -i "/user/c\      user:'$user',"  mysql.js
+sed -i "/host/c\      host:'$ipAddress'," mysql.js
 sed -i "/password/c\      password:'$passwordapp'," mysql.js
 sed -i "/database/c\      database:'live'," mysql.js
 

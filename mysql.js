@@ -1,5 +1,5 @@
 module.exports = mysql_config = {
-      host:'165.227.35.11',
+      host:'localhost',
       user:'app',
       password:'adam',
       database:'live',
