@@ -12,15 +12,12 @@ stty echo
 printf "\n"
 
 #Path to ecosystem config file
-path=./$serverfolder/ecosystem.config.js
-cp sample-ecosystem.config.js $path
+path=./$serverfolder/config/components/mysql.js
+cp sample-mysql.js $path
 
-sed -i "/DB_USER/c\      DB_USER:'app',"  $path
-sed -i "/DB_HOST/c\      DB_HOST:'$ip_address',"  $path
-sed -i "/DB_PASS/c\      DB_PASS:'$passwordapp'," $path
-sed -i "/DB_DATABASE/c\      DB_DATABASE:'live'," $path
-sed -i "/INVESTMENT_ACNT/c\      INVESTMENT_ACNT:'investment_user'," $path
-sed -i "/RAKE_ACNT/c\      RAKE_ACNT:'rake_user'" $path
+sed -i "/user/c\      user:'app',"  $path
+sed -i "/host/c\      host:'$ip_address'," $path
+sed -i "/password/c\      password:'$passwordapp'," $path
 
 cd $serverfolder
 npm install

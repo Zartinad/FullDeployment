@@ -6,7 +6,7 @@ echo "\n \n Cleaning Up Database"
 mysql < ./databaseScripts/cleanSQL.sql
 echo "\n \n Setting Up Live Schema"
 #Create the schema meant for live application
-mysql < ./databaseScripts/setUpSchema.sql
+mysql < ./databaseScripts/setupSchema.sql
 echo "\n \n Securing Accounts"
 #Create password for root and user app
 sh ./databaseScripts/secureSQL.sh
