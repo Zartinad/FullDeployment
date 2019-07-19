@@ -12,23 +12,28 @@ read passwordapp
 stty echo
 printf "\n"
 
-
 cp ./sampleConfigs/sample-mysql.js mysql.js
 
 sed -i "/user/c\      user:'app',"  mysql.js
 sed -i "/host/c\      host:'$ip_address'," mysql.js
 sed -i "/password/c\      password:'$passwordapp'," mysql.js
+sed -i "/database/c\      database:'live'," mysql.js
 
-mv -f mysql.js ./$1/config/components/
-mv -f mysql.js ./$2/config/components/
+
+cp -f "mysql.js" ./$1/config/components/
+cp -f "mysql.js" ./$2/config/components/
+
+pm2 delete 0
+pm2 delete 1
 
 cd $1
 npm install
-pm2 start server.js
+pm2 start -f server.js
 
 cd ..
 
 cd $2
 npm install
-pm2 start frontend_server.js
+pm2 start -f frontend_server.js
 
+sudo service nginx restart
