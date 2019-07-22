@@ -15,3 +15,14 @@ Run the steps below in the FullDeployment folder.
 1. `sh installDependancies.sh`
 2. `sh dashboardBuild.sh [react-folder]`
 3. `sh nginxConfig.sh [ipAddress] [react-folder]`
+
+# Clone the Repository
+`git clone https://github.com/Zartinad/FullDeployment.git`
+`cd FullDeployment`
+
+# Deploy Front-End React
+<details>
+<summary>`git clone [react-project]`</summary>
+<br>
+This is how you dropdown.
+</details>
