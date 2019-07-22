@@ -18,13 +18,16 @@ read passwordapp
 stty echo
 printf "\n"
 
+echo "Enter database in mysql (i.e live): "
+read dbname
+
 #Configure Backend server
 cp -f sampleConfigs/sample-ecosystem.config.js ecosystem.config.js
 
 sed -i "/DB_USER/c\      DB_USER:'$user',"  ecosystem.config.js
 sed -i "/DB_HOST/c\      DB_HOST:'$ipAddress'," ecosystem.config.js
 sed -i "/DB_PASS/c\      DB_PASS:'$passwordapp'," ecosystem.config.js
-sed -i "/DB_DATABASE/c\      DB_DATABASE:'live'," ecosystem.config.js
+sed -i "/DB_DATABASE/c\      DB_DATABASE:'$dbname'," ecosystem.config.js
 sed -i "/INVESTMENT_ACNT/c\      INVESTMENT_ACNT:'investment_user'," ecosystem.config.js
 sed -i "/RAKE_ACNT/c\      RAKE_ACNT:'rake_user'" ecosystem.config.js
 
