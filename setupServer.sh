@@ -44,8 +44,6 @@ sed -i "/database/c\      database:'live'," mysql.js
 cp -f "mysql.js" ./$2/config/components/
 
 echo "" > pm2Delete.txt
-pm2 delete 0 >> pm2Delete.txt
-pm2 delete 1 >> pm2Delete.txt
 pm2 delete /*/
 
 cd $1
