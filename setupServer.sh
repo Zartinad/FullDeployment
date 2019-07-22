@@ -18,6 +18,19 @@ read passwordapp
 stty echo
 printf "\n"
 
+#Configure Backend server
+cp -f sampleConfigs/sample-ecosystem.config.js ecosystem.config.js
+
+sed -i "/DB_USER/c\      DB_USER:'$user',"  ecosystem.config.js
+sed -i "/DB_HOST/c\      DB_HOST:'$ipAddress'," ecosystem.config.js
+sed -i "/DB_PASS/c\      DB_PASS:'$passwordapp'," ecosystem.config.js
+sed -i "/DB_DATABASE/c\      DB_DATABASE:'live'," ecosystem.config.js
+sed -i "/INVESTMENT_ACNT/c\      INVESTMENT_ACNT:'investment_user'," ecosystem.config.js
+sed -i "/RAKE_ACNT/c\      RAKE_ACNT:'rake_user'" ecosystem.config.js
+
+cp -f "ecosystem.config.js" ./$1/ecosystem.config.js
+
+#Configure Frontend server
 cp ./sampleConfigs/sample-mysql.js mysql.js
 
 sed -i "/user/c\      user:'$user',"  mysql.js
@@ -25,17 +38,15 @@ sed -i "/host/c\      host:'$ipAddress'," mysql.js
 sed -i "/password/c\      password:'$passwordapp'," mysql.js
 sed -i "/database/c\      database:'live'," mysql.js
 
-
-cp -f "mysql.js" ./$1/config/components/
 cp -f "mysql.js" ./$2/config/components/
 
-pm2 delete 0
-pm2 delete 1
+echo "" > pm2Delete.txt
+pm2 delete 0 >> pm2Delete.txt
+pm2 delete 1 >> pm2Delete.txt
 
 cd $1
 npm install
-pm2 start -f server.js
-
+pm2 start -f ecosystem.config.js
 cd ..
 
 cd $2
