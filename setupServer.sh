@@ -44,7 +44,7 @@ sed -i "/database/c\      database:'live'," mysql.js
 cp -f "mysql.js" ./$2/config/components/
 
 echo "" > pm2Delete.txt
-pm2 delete /*/
+pm2 delete /./
 
 cd $1
 npm install
