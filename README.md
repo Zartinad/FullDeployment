@@ -4,25 +4,25 @@ Run each file using sh. For example to run the installDependancies.sh file, type
 
 I make references to my react app mk_dashboard which you can check out here: https://github.com/Zartinad/mk_dashboard`
 
-# General Overview of Steps
-Run the steps below in the FullDeployment folder.
-
-* `git clone https://github.com/Zartinad/FullDeployment.git`
-* `cd FullDeployment`
-
-
-0. `git clone [react-project]`
-1. `sh installDependancies.sh`
-2. `sh dashboardBuild.sh [react-folder]`
-3. `sh nginxConfig.sh [ipAddress] [react-folder]`
-
 # Clone the Repository
-`git clone https://github.com/Zartinad/FullDeployment.git`
-`cd FullDeployment`
+    1. `git clone https://github.com/Zartinad/FullDeployment.git`
+    2. `cd FullDeployment`
+# Install Dependancies
+    1. `sh installDependancies.sh`
+# Clone React , Frontend, Backend Files
+    1. `git clone https://github.com/MarkdaleMGMT/frontend-app.git`
+    2. `git clone https://github.com/MarkdaleMGMT/transaction-methods.git`
+    3. `git clone https://github.com/MarkdaleMGMT/frontend-server.git`
 
-# Deploy Front-End React
-<details>
-<summary>`git clone [react-project]`</summary>
-<br>
-This is how you dropdown.
-</details>
+    * [Optional] Make sure that each repo is on the correct branch i.e: 
+        *`cd frontend-app`
+        *`git checkout develop`
+# Deploy Front-End React 
+    1. `sh dashboardBuild.sh [react-folder]`
+        *For example with react folder frontend-app type: `sh dashboardBuild.sh frontend-app`
+    2. `sh nginxConfig.sh [react-folder]`
+# Deploy MySQL and PhpMyAdmin
+    1. `sh installMySQL.sh`
+        *It will prompt you to enter a root and app password for mysql
+    2. `sh installphpMyAdmin.sh`
+        *It will prompt you to enter a password for phpmyadmin
