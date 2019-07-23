@@ -132,7 +132,7 @@ Your terminal should have this at the end:
 ```
 phpMyAdmin available at: 138.197.151.255/phpmyadmin
 ```
-When you enter phpmyadmin through your browswer, enter the username and password created in the mysql setup
+When you enter phpmyadmin through your browser, enter the username and password created in the mysql setup
 
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadmin.png "phpmyadmin.png")
 
