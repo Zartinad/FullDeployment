@@ -13,7 +13,7 @@ read user
 
 #Get password for user app
 stty -echo
-printf "Password for app database access: "
+printf "Password for user $user  database access: "
 read passwordapp
 stty echo
 printf "\n"
@@ -48,6 +48,7 @@ pm2 delete /./
 
 cd $1
 sudo npm install
+sudo npm rebuild
 pm2 start -f ecosystem.config.js
 cd ..
 
