@@ -2,13 +2,16 @@ stty -echo
 printf "Password for root database access: "
 read passwordroot
 printf "\n"
-printf "Password for app databaase access: "
+printf "Username for database access: "
+read username
+printf "Password for $username databaase access: "
 read passwordapp
+printf "\n"
 stty echo
 printf "\n"
 
 #Create user app with password
-mysql -e "CREATE USER 'app'@'%' IDENTIFIED WITH mysql_native_password BY '$passwordapp';"
+mysql -e "CREATE USER '$username'@'%' IDENTIFIED WITH mysql_native_password BY '$passwordapp';"
 mysql -e "GRANT ALL PRIVILEGES ON live.* TO 'app'@'%';FLUSH PRIVILEGES;"
 #Change root to have password
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passwordroot'; FLUSH PRIVILEGES;"
