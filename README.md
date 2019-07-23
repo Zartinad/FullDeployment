@@ -38,6 +38,7 @@ You can now access your default nginx website here
 If you access the your ip address through a terminal, the default nginx website should appear:
 
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/installDependanciesNGINX.png "Defualt NGINX PAGE")
+
 ---
 
 ## Clone React , Frontend, Backend Files
