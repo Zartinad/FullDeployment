@@ -11,4 +11,5 @@ sudo sed -i "s/|\s*\((count(\$analyzed_sql_results\['select_expr'\]\)/| (\1)/g" 
 
 
 ipAddress=`wget http://ipecho.net/plain -O - -q ; echo`
+echo "\n"
 echo "phpMyAdmin available at: $ipAddress/phpmyadmin"
