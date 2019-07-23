@@ -36,6 +36,7 @@ You can now access your default nginx website here
 138.197.151.255
 ```
 If you access the your ip address through a terminal, the default nginx website should appear:
+
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/installDependanciesNGINX.png "Defualt NGINX PAGE")
 ---
 
@@ -118,22 +119,26 @@ sh installphpMyAdmin.sh
 ```
 When you reach this screen, press TAB and ENTER (we don't want apache or lightppd selected!).
 
-![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminskip "Skip Apache")
+![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminskip.png "Skip Apache")
 When you reach the screen below, choose yes by clicking ENTER
 
-![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminyes "YES")
+![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminyes.png "YES")
 Enter your password for phpmyadmin.
 
-![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminyes "Password")
+![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminpass.png "Password")
 
 Your terminal should have this at the end:
 ```
 phpMyAdmin available at: 138.197.151.255/phpmyadmin
 ```
 When you enter phpmyadmin through your browswer, enter the username and password created in the mysql setup
-![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadmin.png "phpmyadmin")
+
+![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadmin.png "phpmyadmin.png")
+
 When you have successfully logged in, notice that the "live" database has been created for you. You will be using this database for your api calls henceforth
+
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminlive.png "live database")
+
 ---
 
 ## Deploy backend and frontend server
