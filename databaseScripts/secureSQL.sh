@@ -2,9 +2,14 @@ stty -echo
 printf "Password for root database access: "
 read passwordroot
 printf "\n"
+
+stty echo
 printf "Username for database access: "
 read username
-printf "Password for $username databaase access: "
+printf "\n"
+
+stty -echo
+printf "Password for username:$username databaase access: "
 read passwordapp
 printf "\n"
 stty echo

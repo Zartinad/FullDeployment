@@ -20,6 +20,10 @@ sudo apt-get -y install nodejs git
 #Install pm2, a process management tool for node
 npm install -y pm2@latest -g
 
+#Install other global dependancies
+apt install -y node-pre-gyp
+npm install -y -g coffescript
+npm install -y -g bcrypt
 echo  "\n ======PACKAGE VERSIONS====== \n"
 
 #Check all the versions
