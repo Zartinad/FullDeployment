@@ -47,12 +47,12 @@ echo "" > pm2Delete.txt
 pm2 delete /./
 
 cd $1
-npm install
+sudo npm install
 pm2 start -f ecosystem.config.js
 cd ..
 
 cd $2
-npm install
+sudo npm install
 pm2 start -f frontend_server.js
 
 sudo service nginx restart

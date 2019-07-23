@@ -1,3 +1,4 @@
+
 #Stage updates
 sudo apt update
 
@@ -21,9 +22,9 @@ sudo apt-get -y install nodejs git
 npm install -y pm2@latest -g
 
 #Install other global dependancies
-apt install -y node-pre-gyp
-npm install -y -g coffescript
-npm install -y -g bcrypt
+#apt install -y node-pre-gyp
+#npm install -y -g coffescript
+#sudo npm install -y -g bcrypt --unsafe-perm=true
 echo  "\n ======PACKAGE VERSIONS====== \n"
 
 #Check all the versions
