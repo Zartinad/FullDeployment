@@ -56,6 +56,10 @@ server_code="server {
                 alias /var/www/$dashboardFolder/build;
                 try_files  \$uri \$uri/ /index.html =404;
 	}
+	location = / {
+                rewrite ^ http://$ipAddress/signin/ redirect;
+        }
+
         location ^~ /static { #Open the css/index files for viewing
                 alias /var/www/$dashboardFolder/build/static;
                 try_files \$uri =404;
