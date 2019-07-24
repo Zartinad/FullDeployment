@@ -13,7 +13,7 @@ read user
 
 #Get password for user app
 stty -echo
-printf "Password for app database access: "
+printf "Password for user $user  database access: "
 read passwordapp
 stty echo
 printf "\n"
@@ -47,12 +47,13 @@ echo "" > pm2Delete.txt
 pm2 delete /./
 
 cd $1
-npm install
+sudo npm install
+sudo npm rebuild
 pm2 start -f ecosystem.config.js
 cd ..
 
 cd $2
-npm install
+sudo npm install
 pm2 start -f frontend_server.js
 
 sudo service nginx restart
