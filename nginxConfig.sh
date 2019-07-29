@@ -58,11 +58,11 @@ server_code="server {
                 try_files  \$uri \$uri/ /index.html =404;
 	}
 	location = / {
-                return 301 http://$ipAddress/signin/;
+                return 301 $ipAddress/signin/;
         }
 
         location ^~ /static { #Open the css/index files for viewing
-                alias /var/www/$dashboardFolder/build/static;
+                alias /var/www/build/static;
                 try_files \$uri =404;
         }
         location ^~ /frontend { #Host frontend on port 3001
