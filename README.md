@@ -25,6 +25,10 @@ Connection to [ip-address] closed.
 ```
 Make sure to reconnect through ssh and go back to the FullDeployment Folder
 
+```
+cd ~/FullDeployment
+```
+
 ---
 ## Install Dependancies
 ```
