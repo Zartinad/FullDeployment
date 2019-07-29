@@ -18,10 +18,10 @@ server_code="server {
         listen [::]:80 default_server;
         # SSL configuration
         #...
-        root /var/www/html;
+        root /var/www/build;
         index index.php index.html index.htm index.nginx-debian.html;
         server_name $ipAddress;
-	#return 301 $ipAddress/signin/;
+	#return 301 http://$ipAddress/signin/;
         location  /backend {
                 proxy_pass http://localhost:3000;
                 proxy_http_version 1.1;
@@ -57,9 +57,9 @@ server_code="server {
                 alias /var/www/build;
                 try_files  \$uri \$uri/ /index.html =404;
 	}
-	location = / {
-                return 301 $ipAddress/signin/;
-        }
+	#location = / {
+    	#	return 301 $ipAddress/signin;
+	#}
 
         location ^~ /static { #Open the css/index files for viewing
                 alias /var/www/build/static;
