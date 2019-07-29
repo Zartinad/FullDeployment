@@ -53,11 +53,11 @@ server_code="server {
                 deny all;
         }
         location / { #When ip_address/dashboard is accessed display the index.html in the react/vue folder
-                alias /var/www/$dashboardFolder/build;
+                alias /var/www/build;
                 try_files  \$uri \$uri/ /index.html =404;
 	}
         location ^~ /static { #Open the css/index files for viewing
-                alias /var/www/$dashboardFolder/build/static;
+                alias /var/www/build/static;
                 try_files \$uri =404;
         }
         location ^~ /frontend { #Host frontend on port 3001
@@ -86,7 +86,7 @@ sudo unlink /etc/nginx/sites-enabled/default >> setupNginx.txt
 sudo nginx -t
 
 #Copy folder
-sudo cp -r "$dashboardFolder" "/var/www/"
+sudo cp -r "$dashboardFolder/build" "/var/www/"
 
 #Restart NGINX
 sudo service nginx restart
