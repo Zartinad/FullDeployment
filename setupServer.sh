@@ -5,9 +5,10 @@ frontend=$2
 #ip_address=`wget http://ipecho.net/plain -O - -q ; echo`
 #echo $ip_address
 
-echo "Enter ip address of mysql: "
-read ipAddress
-
+echo "Enter ip address of mysql or leave empty to use local public ip: "
+read ipAddressPre
+ipAddress=`sh ipInput.sh $ipAddressPre`
+echo $ipAddress
 echo "Enter user for mysql:"
 read user
 
