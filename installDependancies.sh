@@ -5,8 +5,7 @@ sudo apt update
 #Install nginx and set up firewall
 #Note -y forces yes to any prompts about installations
 sudo apt install -y nginx
-sudo ufw allow 'Nginx HTTP'
-sudo ufw status
+sh ufw.sh
 
 #Update Ubuntu to download new versions of node properly.
 #This was due to a problem where ubuntu would download an 
