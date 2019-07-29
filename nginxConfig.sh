@@ -21,6 +21,7 @@ server_code="server {
         root /var/www/html;
         index index.php index.html index.htm index.nginx-debian.html;
         server_name $ipAddress;
+	#return 301 $ipAddress/signin/;
         location  /backend {
                 proxy_pass http://localhost:3000;
                 proxy_http_version 1.1;
@@ -53,11 +54,11 @@ server_code="server {
                 deny all;
         }
         location / { #When ip_address/dashboard is accessed display the index.html in the react/vue folder
-                alias /var/www/$dashboardFolder/build;
+                alias /var/www/build;
                 try_files  \$uri \$uri/ /index.html =404;
 	}
 	location = / {
-                rewrite ^ http://$ipAddress/signin/ redirect;
+                return 301 http://$ipAddress/signin/;
         }
 
         location ^~ /static { #Open the css/index files for viewing
@@ -89,7 +90,7 @@ sudo unlink /etc/nginx/sites-enabled/default
 sudo nginx -t
 
 #Copy folder
-sudo cp -r "$dashboardFolder" "/var/www/"
+sudo cp -r "$dashboardFolder/build" "/var/www/"
 
 #Restart NGINX
 sudo service nginx restart
