@@ -1,8 +1,8 @@
 backend=$1
 
 echo "" > pm2Delete.txt
-pm2 delete load_config
-pm2 delete server
+pm2 delete "load_config"
+pm2 delete "server"
 
 cd $backend
 sudo npm install

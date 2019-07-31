@@ -32,7 +32,7 @@ sed -i "/database/c\      database:'live'," mysql.js
 cp -f "mysql.js" ./$2/config/components/
 
 echo "" > pm2Delete.txt
-pm2 delete frontend_server
+pm2 delete "frontend_server"
 
 cd $1
 sudo npm install
