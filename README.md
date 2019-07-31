@@ -60,7 +60,7 @@ If you access the your ip address through a terminal, the default nginx website 
 ## 4. Clone React , Frontend, Backend Files
 The following script will clone all the repos and the appropriate (develop) branches neeeded to run the app:
 ```
-sh cloneRepos.sh
+sh cloneRepos.sh [backend branch] [frontendserver branch] [frontendapp branch]
 ```
 
 ---
