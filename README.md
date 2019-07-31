@@ -37,7 +37,7 @@ sh installDependancies.sh
 Your terminal should look like this at the end:
 ```
 You can now access your default nginx website here
-138.197.151.255
+[Your IP Address]
 ```
 If you access the your ip address through a terminal, the default nginx website should appear:
 
