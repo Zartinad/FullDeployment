@@ -69,20 +69,20 @@ sed -i "/DB_PASS/c\      DB_PASS:'$passwordapp'," ecosystem.config.js
 sed -i "/DB_DATABASE/c\      DB_DATABASE:'$dbname'," ecosystem.config.js
 
 sed -i "/INVESTMENT_ACNT/c\      INVESTMENT_ACNT:'$investAct'," ecosystem.config.js
-sed -i "/RAKE_ACNT/c\      RAKE_ACNT:'$rakeAct'" ecosystem.config.js
-sed -i "/FX_ACNT/c\      RAKE_ACNT:'$fxAct'" ecosystem.config.js
+sed -i "/RAKE_ACNT/c\      RAKE_ACNT:'$rakeAct'," ecosystem.config.js
+sed -i "/FX_ACNT/c\      FX_ACNT:'$fxAct'," ecosystem.config.js
 
-sed -i "/WITHDRAWAL_FEES_ACNT/c\      WITHDRAWAL_FEES_ACNT:'$wthdrawFeeAct'" ecosystem.config.js
+sed -i "/WITHDRAWAL_FEES_ACNT/c\      WITHDRAWAL_FEES_ACNT:'$wthdrawFeeAct'," ecosystem.config.js
 
-sed -i "/BTC_PAY_HOST/c\      RAKE_ACNT:'$btcPayHost'" ecosystem.config.js
-sed -i "/BTC_PAY_PORT/c\      RAKE_ACNT:'$btcPayPort'" ecosystem.config.js
-sed -i "/BTC_PAY_RPC_USER/c\      RAKE_ACNT:'$btcPayRPCUser'" ecosystem.config.js
-sed -i "/BTC_PAY_RPC_PASS/c\      RAKE_ACNT:'$btcPayRPCPass'" ecosystem.config.js
+sed -i "/BTC_PAY_HOST/c\      BTC_PAY_HOST:'$btcPayHost'," ecosystem.config.js
+sed -i "/BTC_PAY_PORT/c\      BTC_PAY_PORT:'$btcPayPort'," ecosystem.config.js
+sed -i "/BTC_PAY_RPC_USER/c\      BTC_PAY_RPC_USER:'$btcPayRPCUser'," ecosystem.config.js
+sed -i "/BTC_PAY_RPC_PASS/c\      BTC_PAY_RPC_PASS:'$btcPayRPCPass'," ecosystem.config.js
 
-sed -i "/CLAM_PAY_HOST/c\      RAKE_ACNT:'$clamPayHost'" ecosystem.config.js
-sed -i "/CLAM_PAY_PORT/c\      RAKE_ACNT:'$clamPayPort'" ecosystem.config.js
-sed -i "/CLAM_PAY_RPC_USER/c\      RAKE_ACNT:'$clamPayRPCUser'" ecosystem.config.js
-sed -i "/CLAM_PAY_RPC_PASS/c\      RAKE_ACNT:'$clamPayRPCPass'" ecosystem.config.js
+sed -i "/CLAM_PAY_HOST/c\      CLAM_PAY_HOST:'$clamPayHost'," ecosystem.config.js
+sed -i "/CLAM_PAY_PORT/c\      CLAM_PAY_PORT:'$clamPayPort'," ecosystem.config.js
+sed -i "/CLAM_PAY_RPC_USER/c\      CLAM_PAY_RPC_USER:'$clamPayRPCUser'," ecosystem.config.js
+sed -i "/CLAM_PAY_RPC_PASS/c\      CLAM_PAY_RPC_PASS:'$clamPayRPCPass'," ecosystem.config.js
 
 
 cp -f "ecosystem.config.js" ./$backend/ecosystem.config.js
