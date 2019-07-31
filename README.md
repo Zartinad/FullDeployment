@@ -2,16 +2,19 @@
 This repo contains shell script that will help you deploy your frontend website on a digital ocean server using NGINX.
 Run each file using sh. For example to run the installDependancies.sh file, type in you terminal `sh installDependancies.sh
 
-I make references to my react app mk_dashboard which you can check out here: https://github.com/Zartinad/mk_dashboard`
 ---
 ---
+
 ## 1.Clone the Repository
 ```
 git clone https://github.com/Zartinad/FullDeployment.git
 cd FullDeployment
 ```
+
 ---
-## 2.Allocate more ram
+---
+
+## 2. Allocate more ram
 We need to allocate more ram to the Ubuntu system for future steps. Run the command in your terminal:
 ```
 sh swapFile.sh
@@ -29,9 +32,11 @@ Make sure to reconnect through ssh and go back to the FullDeployment Folder
 ```
 cd ~/FullDeployment
 ```
+
 ---
 ---
-## 3.Install Dependancies
+
+## 3. Install Dependancies
 Install all the dependancies needed to setup the project
 ```
 sh installDependancies.sh
@@ -47,19 +52,21 @@ If you access the your ip address through a terminal, the default nginx website 
 
 ---
 ---
-## 4.Clone React , Frontend, Backend Files
+
+## 4. Clone React , Frontend, Backend Files
 The following script will clone all the repos and the appropriate (develop) branches neeeded to run the app:
 ```
 sh cloneRepos.sh
 ```
 
 ---
-## Setup and deploy React Frontend
+---
+
+## 5. Setup and deploy React Frontend
 Build production build of react project
 ```
-sh dashboardBuild.sh [react-folder]
+sh dashboardBuild.sh frontend-app
 ```
-For example with react folder frontend-app: `sh dashboardBuild.sh frontend-app`
 It may take awhile to develop the optimized production build, so don't close the terminal.
 You should see this on your terminal once it is done
 ```
@@ -75,7 +82,7 @@ https://bit.ly/CRA-deploy
 ```
 Configure Nginx
 ```
-sh nginxConfig.sh [react-folder]
+sh nginxConfig.sh frontend-app
 ```
 Your terminal should look like this afterwards:
 ```
@@ -84,7 +91,10 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 Dashboard available in 
 [ipAddress]/dashboard
 ```
+
 ---
+---
+
 ## Deploy MySQL and PhpMyAdmin
 Install MySQL and setup users
 ```
