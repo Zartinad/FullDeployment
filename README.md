@@ -142,7 +142,7 @@ When you have successfully logged in, notice that the "live" database has been c
 ---
 
 ## 7. Deploy Backend Server
-First we need to setup the ecosystem.config. It will prompt you for information to configure the backend script.
+First we need to setup the ecosystem.config. It will prompt you for information to configure the backend ecosystem file.
 ```
 sh setupBackendEcosystem.sh transaction-methods
 ```
