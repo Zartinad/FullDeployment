@@ -3,15 +3,16 @@ This repo contains shell script that will help you deploy your frontend website 
 Run each file using sh. For example to run the installDependancies.sh file, type in you terminal `sh installDependancies.sh
 
 I make references to my react app mk_dashboard which you can check out here: https://github.com/Zartinad/mk_dashboard`
-
 ---
-## Clone the Repository
+---
+## 1.Clone the Repository
 ```
 git clone https://github.com/Zartinad/FullDeployment.git
 cd FullDeployment
 ```
 ---
-## Allocate more ram
+## 2.Allocate more ram
+We need to allocate more ram to the Ubuntu system for future steps. Run the command in your terminal:
 ```
 sh swapFile.sh
 ```
@@ -28,9 +29,10 @@ Make sure to reconnect through ssh and go back to the FullDeployment Folder
 ```
 cd ~/FullDeployment
 ```
-
 ---
-## Install Dependancies
+---
+## 3.Install Dependancies
+Install all the dependancies needed to setup the project
 ```
 sh installDependancies.sh
 ```
@@ -44,27 +46,13 @@ If you access the your ip address through a terminal, the default nginx website 
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/installDependanciesNGINX.png "Defualt NGINX PAGE")
 
 ---
+---
+## 4.Clone React , Frontend, Backend Files
+The following script will clone all the repos and the appropriate (develop) branches neeeded to run the app:
+```
+sh cloneRepos.sh
+```
 
-## Clone React , Frontend, Backend Files
-```
-git clone https://github.com/MarkdaleMGMT/frontend-app.git
-git clone https://github.com/MarkdaleMGMT/transaction-methods.git
-git clone https://github.com/MarkdaleMGMT/frontend-server.git
-```
-Make sure that each repo is on the correct branch i.e: 
-```
-cd frontend-app
-git checkout develop
-cd ..
-
-cd transaction-methods
-git checkout feature-multiple-currency-develop
-cd ..
-
-cd frontend-server
-git checkout deploy
-cd ..
-```
 ---
 ## Setup and deploy React Frontend
 Build production build of react project
