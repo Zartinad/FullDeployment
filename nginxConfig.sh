@@ -19,7 +19,7 @@ server_code="server {
         # SSL configuration
         #...
         root /var/www/build;
-        index index.php index.html index.htm index.nginx-debian.html;
+        index index.html index.htm;
         server_name $ipAddress;
 	#return 301 http://$ipAddress/signin/;
         location  /backend {
@@ -54,8 +54,8 @@ server_code="server {
                 deny all;
         }
         location / { #When ip_address/dashboard is accessed display the index.html in the react/vue folder
-                alias /var/www/build;
-                try_files  \$uri \$uri/ /index.html =404;
+                #alias /var/www/build;
+                #try_files  \$uri \$uri/ /index.html =404;
 	}
 	#location = / {
     	#	return 301 $ipAddress/signin;
