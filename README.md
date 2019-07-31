@@ -91,7 +91,7 @@ Dashboard available in
 ---
 ---
 
-## Deploy MySQL and PhpMyAdmin
+## 6. Deploy MySQL and PhpMyAdmin
 Install MySQL and setup users
 ```
 sh installMySQL.sh
@@ -139,28 +139,27 @@ When you have successfully logged in, notice that the "live" database has been c
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/phpmyadminlive.png "live database")
 
 ---
+---
 
-## Deploy backend and frontend server
-Setup servers for frontend and backend
+## 7. Deploy Backend Server
+First we need to setup the ecosystem.config. It will prompt you for information to configure the backend script.
 ```
-sh setupServer [backend folder] [frontend folder]
+sh setupBackendEcosystem.sh transaction-methods
 ```
-For example `sh setupServer transaction-methods frontend-server`
+Next, deploy the server by using the following command
+```
+sh setupBackendServer.sh transaction-methods
+```
+You should see load_config and server up on pm2 at the end of the terminal screen
+![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/backendlive.png "Backend Running")
 
-Enter the information accordingly. Use localhost as your ip address for mysql
+---
+---
+
+## 8. Deploy Frontend Server
+Simply run the following command. It will prompt you for mysql credentials
 ```
-root@coding-challenge-4:~/FullDeployment# sh setupServer.sh transaction-methods frontend-server
-Enter ip address of mysql: 
-localhost
-Enter user for mysql:
-adam
-Password for user adam  database access: 
-Enter database in mysql (i.e live): 
-live
+ sh setupFrontendServer.sh frontend-server
 ```
-Should see all 3 servers live from pm2:
-![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/pm2.png "live database")
-When accessing ip-address/frontend and ip-address/backend. You should get back the following message
-```
-{"msg":"hello! Server is up and running"}
-```
+![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/frontendlive.png "Frontend Running")
+
