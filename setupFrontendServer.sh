@@ -29,7 +29,7 @@ sed -i "/host/c\      host:'$ipAddress'," mysql.js
 sed -i "/password/c\      password:'$passwordapp'," mysql.js
 sed -i "/database/c\      database:'live'," mysql.js
 
-cp -f "mysql.js" ./$2/config/components/
+cp -f "mysql.js" ./$frontend/config/components/
 
 echo "" > pm2Delete.txt
 pm2 delete "frontend_server"
