@@ -30,6 +30,17 @@ module.exports = {
       DB_DATABASE:<db_name>,
       INVESTMENT_ACNT:<investment_acnt_username>,
       RAKE_ACNT:<rake_acnt_username>,
+      FX_ACNT:<fx_acnt_username>,
+      WITHDRAWAL_FEES_ACNT:<withdrawal_anct_username>,
+      BTC_PAY_HOST:<bitcoin_payment_ip>,
+      BTC_PAY_PORT:<bitcoin_payment_port>,
+      BTC_PAY_RPC_USER:<bitcoin_payment_rpc_user>,
+      BTC_PAY_RPC_PASS:<bitcoin_payment_rpc_pass>,
+      CLAM_PAY_HOST:<clamcoin_payment_ip>,
+      CLAM_PAY_PORT:<clamcoin_payment_port>,
+      CLAM_PAY_RPC_USER:<clamcoin_payment_rpc_user>,
+      CLAM_PAY_RPC_PASS:<clamcoin_payment_rpc_pass>
+
     },
     env_production: {
       NODE_ENV: 'production',
@@ -39,6 +50,16 @@ module.exports = {
       DB_DATABASE:<db_name>,
       INVESTMENT_ACNT:<investment_acnt_username>,
       RAKE_ACNT:<rake_acnt_username>,
+      FX_ACNT:<fx_acnt_username>,
+      WITHDRAWAL_FEES_ACNT:<withdrawal_anct_username>,
+      BTC_PAY_HOST:<bitcoin_payment_ip>,
+      BTC_PAY_PORT:<bitcoin_payment_port>,
+      BTC_PAY_RPC_USER:<bitcoin_payment_rpc_user>,
+      BTC_PAY_RPC_PASS:<bitcoin_payment_rpc_pass>,
+      CLAM_PAY_HOST:<clamcoin_payment_ip>,
+      CLAM_PAY_PORT:<clamcoin_payment_port>,
+      CLAM_PAY_RPC_USER:<clamcoin_payment_rpc_user>,
+      CLAM_PAY_RPC_PASS:<clamcoin_payment_rpc_pass>
     }
   }]
 };
