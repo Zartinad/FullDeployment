@@ -14,5 +14,5 @@ mysql live < ./databaseScripts/startup_script.sql
 sh ./databaseScripts/secureSQL.sh
 echo "MYSQL INSTALLED AND SECURED!"
 
-sed 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo service mysql restart
