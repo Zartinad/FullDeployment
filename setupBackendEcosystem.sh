@@ -85,4 +85,4 @@ sed -i "/CLAM_PAY_RPC_USER/c\      CLAM_PAY_RPC_USER:'$clamPayRPCUser'," ecosyst
 sed -i "/CLAM_PAY_RPC_PASS/c\      CLAM_PAY_RPC_PASS:'$clamPayRPCPass'," ecosystem.config.js
 
 
-cp -f "ecosystem.config.js" ./$backend/ecosystem.config.js
+cp -f "ecosystem.config.js" ./$backend/
