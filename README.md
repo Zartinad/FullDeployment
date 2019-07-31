@@ -5,10 +5,14 @@ Run each file using sh. For example to run the installDependancies.sh file, type
 ---
 ---
 
-## 1.Clone the Repository
+## 1.Clone the Repository and setup git configs
 ```
 git clone https://github.com/Zartinad/FullDeployment.git
 cd FullDeployment
+```
+To push changes from the server we need to set the git username and password. Replace [username] or [email] as desired, or leave blank to be filled with server information
+```
+sh setupGit.sh [username] [email]
 ```
 
 ---
