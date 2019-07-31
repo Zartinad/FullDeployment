@@ -68,19 +68,11 @@ Build production build of react project
 sh dashboardBuild.sh frontend-app
 ```
 It may take awhile to develop the optimized production build, so don't close the terminal.
-You should see this on your terminal once it is done
-```
-The build folder is ready to be deployed.
-You may serve it with a static server:
+You should see this on your terminal once it is done:
 
-npm install -g serve
-serve -s build
+![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/buildComplete.png "Terminal Build")
 
-Find out more about deployment here:
-
-https://bit.ly/CRA-deploy
-```
-Configure Nginx
+Configure Nginx to host the frontend production build:
 ```
 sh nginxConfig.sh frontend-app
 ```
