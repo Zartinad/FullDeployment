@@ -2,6 +2,7 @@
 
 #Save developer-specific information
 ipAddress=`wget http://ipecho.net/plain -O - -q ; echo`
+dashboardFolder=$1
 
 #Create main configuration file
 #Note: We do not touch defualt incase we need it in the future. 
@@ -17,13 +18,10 @@ server_code="server {
         listen [::]:80 default_server;
         # SSL configuration
         #...
-        #root /var/www/build;
-        #index index.html index.htm;
-	root /var/www/html;
+        root /var/www/html;
         index index.php index.html index.htm index.nginx-debian.html;
         server_name $ipAddress;
-	#return 301 http://$ipAddress/signin/;
-        location  /backend {
+        location ^~ /backend {
                 proxy_pass http://localhost:3000;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade \$http_upgrade;
@@ -36,7 +34,7 @@ server_code="server {
                 root /usr/share/;
                 fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
         }
-	location ^~/phpmyadmin {
+	location /phpmyadmin {
            root /var/www/html/;
            index index.php index.html index.htm;
            location ~ ^/phpmyadmin/(.+\.php)$ {
@@ -57,10 +55,6 @@ server_code="server {
         location / { #When ip_address/dashboard is accessed display the index.html in the react/vue folder
                 alias /var/www/build;
                 try_files  \$uri \$uri/ /index.html =404;
-	}
-	location ~ /(?:index.html)?$ {
-   		root /var/www/build/;
-    		index index.html;
 	}
         location ^~ /static { #Open the css/index files for viewing
                 alias /var/www/build/static;
@@ -84,11 +78,15 @@ access_log /var/log/nginx/access.log requests;
 echo "$server_code" > $configFile
 
 #Create link in site-enabled so it can be accessed and unlink default
-sudo ln -s $configFile /etc/nginx/sites-enabled/
-sudo unlink /etc/nginx/sites-enabled/default
+echo "" > setupNginx.txt
+sudo ln -s $configFile /etc/nginx/sites-enabled/ >> setupNginx.txt
+sudo unlink /etc/nginx/sites-enabled/default >> setupNginx.txt
 
 #Check if syntax is correct
 sudo nginx -t
+
+#Copy folder
+sudo cp -r "$dashboardFolder/build" "/var/www/"
 
 #Restart NGINX
 sudo service nginx restart
@@ -96,6 +94,6 @@ sudo systemctl restart nginx
 sudo systemctl reload nginx
 
 #Provide link address
-LINK="$ipAddress"
+LINK="$ipAddress/dashboard"
 
-echo "NGINX Configured!"
+echo "Dashboard available in \n$LINK\n"
