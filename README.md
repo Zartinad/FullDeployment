@@ -161,5 +161,6 @@ Simply run the following command. It will prompt you for mysql credentials
 ```
  sh setupFrontendServer.sh frontend-server
 ```
+Your terminal should show 3 applications running on pm2
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/frontendlive.png "Frontend Running")
 

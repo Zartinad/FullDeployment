@@ -19,7 +19,7 @@ server_code="server {
         # SSL configuration
         #...
         root /var/www/build;
-        index index.php index.html index.htm index.nginx-debian.html;
+        index index.html index.htm;
         server_name $ipAddress;
 	#return 301 http://$ipAddress/signin/;
         location  /backend {
@@ -57,10 +57,10 @@ server_code="server {
                 alias /var/www/build;
                 try_files  \$uri \$uri/ /index.html =404;
 	}
-	#location = / {
-    	#	return 301 $ipAddress/signin;
-	#}
-
+	location ~ /(?:index.html)?$ {
+   		root /var/www/build/;
+    		index index.html;
+	}
         location ^~ /static { #Open the css/index files for viewing
                 alias /var/www/build/static;
                 try_files \$uri =404;
