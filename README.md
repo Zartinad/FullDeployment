@@ -2,16 +2,20 @@
 This repo contains shell script that will help you deploy your frontend website on a digital ocean server using NGINX.
 Run each file using sh. For example to run the installDependancies.sh file, type in you terminal `sh installDependancies.sh
 
-I make references to my react app mk_dashboard which you can check out here: https://github.com/Zartinad/mk_dashboard`
-
 ---
-## Clone the Repository
+---
+
+## 1.Clone the Repository
 ```
 git clone https://github.com/Zartinad/FullDeployment.git
 cd FullDeployment
 ```
+
 ---
-## Allocate more ram
+---
+
+## 2. Allocate more ram
+We need to allocate more ram to the Ubuntu system for future steps. Run the command in your terminal:
 ```
 sh swapFile.sh
 ```
@@ -30,48 +34,39 @@ cd ~/FullDeployment
 ```
 
 ---
-## Install Dependancies
+---
+
+## 3. Install Dependancies
+Install all the dependancies needed to setup the project
 ```
 sh installDependancies.sh
 ```
 Your terminal should look like this at the end:
 ```
 You can now access your default nginx website here
-138.197.151.255
+[Your IP Address]
 ```
 If you access the your ip address through a terminal, the default nginx website should appear:
 
 ![alt text](https://github.com/Zartinad/FullDeployment/blob/master/Tutorial_Pictures/installDependanciesNGINX.png "Defualt NGINX PAGE")
 
 ---
-
-## Clone React , Frontend, Backend Files
-```
-git clone https://github.com/MarkdaleMGMT/frontend-app.git
-git clone https://github.com/MarkdaleMGMT/transaction-methods.git
-git clone https://github.com/MarkdaleMGMT/frontend-server.git
-```
-Make sure that each repo is on the correct branch i.e: 
-```
-cd frontend-app
-git checkout develop
-cd ..
-
-cd transaction-methods
-git checkout feature-multiple-currency-develop
-cd ..
-
-cd frontend-server
-git checkout deploy
-cd ..
-```
 ---
-## Setup and deploy React Frontend
+
+## 4. Clone React , Frontend, Backend Files
+The following script will clone all the repos and the appropriate (develop) branches neeeded to run the app:
+```
+sh cloneRepos.sh
+```
+
+---
+---
+
+## 5. Setup and deploy React Frontend
 Build production build of react project
 ```
-sh dashboardBuild.sh [react-folder]
+sh dashboardBuild.sh frontend-app
 ```
-For example with react folder frontend-app: `sh dashboardBuild.sh frontend-app`
 It may take awhile to develop the optimized production build, so don't close the terminal.
 You should see this on your terminal once it is done
 ```
@@ -87,7 +82,7 @@ https://bit.ly/CRA-deploy
 ```
 Configure Nginx
 ```
-sh nginxConfig.sh [react-folder]
+sh nginxConfig.sh frontend-app
 ```
 Your terminal should look like this afterwards:
 ```
@@ -96,7 +91,10 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 Dashboard available in 
 [ipAddress]/dashboard
 ```
+
 ---
+---
+
 ## Deploy MySQL and PhpMyAdmin
 Install MySQL and setup users
 ```
