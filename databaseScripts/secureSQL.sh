@@ -1,10 +1,10 @@
 stty -echo
-printf "Password for root database access: "
+printf "Enter password for root mysql access: "
 read passwordroot
 printf "\n"
 
 stty echo
-printf "Username for database access: "
+printf "Username for database access (i.e app): "
 read username
 printf "\n"
 
