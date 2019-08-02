@@ -54,11 +54,11 @@ server_code="server {
         location ~ /\.ht {
                 deny all;
         }
-        location / { #When ip_address/dashboard is accessed display the index.html in the react/vue folder
+        location ^~/ { #When ip_address/dashboard is accessed display the index.html in the react/vue folder
                 alias /var/www/build;
                 try_files  \$uri \$uri/ /index.html =404;
 	}
-	location ~ /(?:index.html)?$ {
+	location ^~/(?:index.html)?$ {
    		root /var/www/build/;
     		index index.html;
 	}
