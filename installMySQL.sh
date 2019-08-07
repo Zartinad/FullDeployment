@@ -6,10 +6,9 @@ echo "\nCleaning Up Database"
 mysql < ./databaseScripts/cleanSQL.sql
 echo "\nSetting Up Live Schema"
 #Create the schema meant for live application
-mysql < ./databaseScripts/setupSchema.sql
-echo "\nSecuring Accounts"
-#Startup script 
 mysql live < ./transaction-methods/target.sql
+mysql live < ./transaction-methods/startup_script.sql
+
 #Create password for root and user app
 sh ./databaseScripts/secureSQL.sh
 echo "MYSQL INSTALLED AND SECURED!"
