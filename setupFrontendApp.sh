@@ -1,6 +1,8 @@
 dashboardFolder=$1
 ipAddress=`wget http://ipecho.net/plain -O - -q ; echo`
 
+node inputFrontend.js ./$dashboardFolder/src/config
+
 echo "\n Building Produciton Build of $dashboardFolder \n"
 
 cd $dashboardFolder
