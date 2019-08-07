@@ -9,7 +9,7 @@ echo "\nSetting Up Live Schema"
 mysql < ./databaseScripts/setupSchema.sql
 echo "\nSecuring Accounts"
 #Startup script 
-mysql live < ./transaction-methods/target,sql
+mysql live < ./transaction-methods/target.sql
 #Create password for root and user app
 sh ./databaseScripts/secureSQL.sh
 echo "MYSQL INSTALLED AND SECURED!"
