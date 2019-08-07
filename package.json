@@ -1,0 +1,22 @@
+{
+  "name": "fulldeployment",
+  "version": "1.0.0",
+  "description": "This repo contains shell script that will help you deploy your frontend website on a digital ocean server using NGINX.",
+  "main": "ecosystem.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zartinad/FullDeployment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zartinad/FullDeployment/issues"
+  },
+  "homepage": "https://github.com/Zartinad/FullDeployment#readme",
+  "dependencies": {
+    "inquirer": "^6.5.0"
+  }
+}
