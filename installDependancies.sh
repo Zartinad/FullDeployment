@@ -25,6 +25,7 @@ npm install -y pm2@latest -g
 sudo npm install -y -g node-pre-gyp
 sudo npm install -y -g coffeescript
 sudo npm install -y -g bcrypt --unsafe-perm=true
+sudo npm install -y
 echo  "\n ======PACKAGE VERSIONS====== \n"
 
 #Check all the versions
