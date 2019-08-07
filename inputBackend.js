@@ -1,4 +1,6 @@
-let inquirer = require('inquirer');
+const inquirer = require('inquirer'); //Question and Answer
+const fs = require('fs') //File Writer
+
 let sampleEcosystemConfig = require('./sampleConfigs/sample-ecosystem-redux.config').apps
 
 let inputDict = {} //This will store inputs that have been processed already
@@ -23,6 +25,14 @@ async function main(){
     }
 
     console.log(sampleEcosystemConfig)
+    let write = `module.exports = ${JSON.stringify(sampleEcosystemConfig)}`
+    
+    // Write data in 'Output.txt' . 
+    fs.writeFile('ecosystem.config.js', write, (err) => { 
+        
+    // In case of a error throw err. 
+    if (err) throw err; 
+    }) 
 }
 
 //Processes 
