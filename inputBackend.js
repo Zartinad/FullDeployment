@@ -1,7 +1,8 @@
 const inquirer = require('inquirer'); //Question and Answer
+const publicIp = require('public-ip')
 const fs = require('fs') //File Writer
 
-let sampleEcosystemConfig = require('./sampleConfigs/sample-ecosystem-redux.config').apps
+let sampleEcosystemConfig = require('./transaction-methods/sample-ecosystem.config').apps
 
 let inputDict = {} //This will store inputs that have been processed already
 
@@ -24,7 +25,6 @@ async function main(){
         }
     }
 
-    console.log(sampleEcosystemConfig)
     let write = `module.exports = ${JSON.stringify(sampleEcosystemConfig)}`
     
     // Write data in 'Output.txt' . 
@@ -37,18 +37,52 @@ async function main(){
 
 //Processes 
 async function processInput(targetField, configIndex){
+    const ipAddress = await publicIp.v4()
+
     if (targetField != 'NODE_ENV'){
         if (targetField in inputDict){ //If we have input it before, use the same answer
             sampleEcosystemConfig[configIndex].env[targetField] = inputDict[targetField]
         } else { //We ask the user to input it
-            let answers = await inquirer.prompt([ {
-                type: 'input',
-                name: 'answer',
-                message: `Enter Input For ${targetField}?`,
-            }])
-            console.log(answers.answer)
-            sampleEcosystemConfig[configIndex].env[targetField] = answers.answer
-            inputDict[targetField] = answers.answer
+
+            answer = ""
+            if (targetField == 'DB_PASS'){
+                answer = await inquirer.prompt({
+                    message: `Enter Input For ${targetField}?`,
+                    type: 'password',
+                    mask: '*',
+                    name: 'answer'
+                  });
+            } else if (targetField == 'DB_HOST') {
+                answer = await inquirer.prompt([
+                    {
+                        message: `Use Default IP Address (${ipAddress}) For ${targetField}?`,
+                        type: 'confirm',
+                        name: 'confirm'
+                    }, 
+                    {
+                        type: 'input',
+                        name: 'answer',
+                        message: `Enter IP Address for ${targetField}`,
+                        when: (answer) => { return !answer.confirm}
+                  }]);
+                
+                if (answer.confirm){
+                    answer.answer = ipAddress
+                } 
+                
+            } else {
+                answer = await inquirer.prompt([ {
+                    type: 'input',
+                    name: 'answer',
+                    message: `Enter Input For ${targetField}?`,
+                }])
+                
+                
+            }
+            answer = answer.answer
+            sampleEcosystemConfig[configIndex].env[targetField] = answer
+            inputDict[targetField] = answer
+            
         }        
                 
     }
