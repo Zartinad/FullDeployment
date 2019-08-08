@@ -24,7 +24,7 @@ async function main(){
             //Do nothing
         } else if (passwordKeys.includes(key)) {
             answer = await inquirer.prompt({
-                message: `Enter Input For ${key}?`,
+                message: `Enter ${key}?`,
                 type: 'password',
                 mask: '*',
                 name: 'answer'
