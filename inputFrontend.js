@@ -30,7 +30,7 @@ async function main(){
                 name: 'answer'
               });
         } else if (ipKeys.includes(key)){
-            answer = await inquirer.prompt([
+            answer = await inquirer.prompt([ 
                 {
                     message: `Use Default IP Address (${ipAddress}) For ${key}?`,
                     type: 'confirm',
@@ -41,11 +41,21 @@ async function main(){
                     name: 'answer',
                     message: `Enter IP Address for ${key}`,
                     when: (answer) => { return !answer.confirm}
-              }]);
+                },
+                {
+                    type: 'confirm',
+                    name: 'confirmHTTP',
+                    message: `Prepend http:// before IP Address?`,
+                }
+            ]);
             
             if (answer.confirm){
                 answer.answer = ipAddress
             } 
+
+            if (answer.confirmHTTP){
+                answer.answer = `http://${answer.answer}`
+            }
         } else {
             answer = await inquirer.prompt(
                 {
