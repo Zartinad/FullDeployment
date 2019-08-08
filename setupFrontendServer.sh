@@ -4,6 +4,7 @@ frontend=$1
 #ip_address=`wget http://ipecho.net/plain -O - -q ; echo`
 #echo $ip_address
 
+touch ./$1/config/component/mysql.js
 node inputFrontend.js ./$1/config/component/mysql
 
 echo "" > pm2Delete.txt

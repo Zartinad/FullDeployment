@@ -1,13 +1,14 @@
 dashboardFolder=$1
 ipAddress=`wget http://ipecho.net/plain -O - -q ; echo`
 
+touch ./$dashboardFolder/src/config.js
 node inputFrontend.js ./$dashboardFolder/src/config
 
 echo "\n Building Produciton Build of $dashboardFolder \n"
 
 cd $dashboardFolder
 echo "" > "build.txt"
-sudo npm install
+sudo npm install --verbose
 sudo npm run build >> "build.txt"
 cd ..
 
