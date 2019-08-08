@@ -6,6 +6,7 @@ echo "\nCleaning Up Database"
 mysql < ./databaseScripts/cleanSQL.sql
 echo "\nSetting Up Live Schema"
 #Create the schema meant for live application
+mysql < ./databaseScripts/createDatabase.sql
 mysql live < ./transaction-methods/target.sql
 mysql live < ./transaction-methods/startup_script.sql
 
