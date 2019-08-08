@@ -12,6 +12,8 @@ let today = new Date()
 let datetime = `${today.getMonth()}/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
 console.log(datetime)
 
+var userPrime = ""
+
 tests = {
     backendTests: [
       {
@@ -44,24 +46,12 @@ tests = {
     frontendTests: [
       {
         should: 'Should Create A New User', 
-        api: "/frontend/signup", 
+        api: "/frontend/test", 
         method: "post",
         body: {
-          "code" :"21232",
-          "password": "password", 
-          "username": `Test@${datetime}`,
-          "email": `zartinight@gmail.com`
+         test: 0,
         },
       },
-      {
-        should: 'Should Sign In New User', 
-        api: "/frontend/login", 
-        method: "post",
-        body: {
-          "username" : `Test@${datetime}`, 
-          "password": "password"
-        },
-      }
    ]
   }
 
