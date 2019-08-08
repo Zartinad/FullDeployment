@@ -5,8 +5,10 @@ const async = require('async')
 
 const publicIp = require('public-ip')
 //const ipAddress = "http://165.227.35.11"
-const ipAddress = `http://${publicIp.v4()}`
+//const ipAddress = `http://${publicIp.v4()}`
 const axios = require('axios')
+
+//console.log(ipAddress)
 
 let today = new Date()
 let datetime = `${today.getMonth()}/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
@@ -61,6 +63,10 @@ let mochaInstance = new Mocha();
 let testKeys = Object.keys(tests)
 let testIndex = 0
 
+async function main(){
+const ip = await publicIp.v4()
+const ipAddress = `http://${ip}`
+
 for (testIndex; testIndex < testKeys.length; testIndex++){
     key = testKeys[testIndex]
     targetTests = tests[key]
@@ -106,3 +112,6 @@ for (testIndex; testIndex < testKeys.length; testIndex++){
 }
 
 mochaInstance.run()
+}
+
+main()
