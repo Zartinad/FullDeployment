@@ -4,9 +4,10 @@ const path = require('path');
 const process = require("process");
 //Replaces regex matching strings in files
 const replace = require('replace-in-file');
-
 const publicIp = require('public-ip')
-var ipAddress = process.argv[3]
+
+const inquirer = require('inquirer')
+var ipAddress
 
 /**
  * Matches IP address regex and changes it to the public ip address of the
@@ -51,7 +52,7 @@ async function traverse(rootFolder) {
                 }
 
                 if (stat.isFile()) { //If it is a file, change all ip instances
-                    console.log("Changing IP at %s", fromPath)
+                    //console.log("Changing IP at %s", fromPath)
                     await configureIP(fromPath)
                 } else if (stat.isDirectory()) { //If directory recursively traverse
                     traverse(fromPath)
@@ -68,12 +69,24 @@ async function traverse(rootFolder) {
  */
 async function main() {
 
-    if (process.argv[3]){ //If we specify and 2nd argument then we'll use that argument
-        ipAddress = process.argv[3]
-    } else { //Use this server's public ip address
-        ipAddress = await publicIp.v4()
-    }
+    ipAddress = await publicIp.v4()
+    answer = await inquirer.prompt([ 
+        {
+            message: `Use Default IP Address (${ipAddress}) frontEndApp?`,
+            type: 'confirm',
+            name: 'confirm'
+        }, 
+        {
+            type: 'input',
+            name: 'answer',
+            message: `Enter IP Address for FrontendApp`,
+            when: (answer) => { return !answer.confirm}
+        },
+    ])
 
+    if (!answer.confirm){
+        ipAddress = answer.answer
+    }
     rootFolder = process.argv[2]
     traverse(rootFolder)
     
