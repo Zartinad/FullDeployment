@@ -5,6 +5,8 @@ const process = require("process");
 //Replaces regex matching strings in files
 const replace = require('replace-in-file');
 
+const publicIp = require('public-ip')
+var ipAddress = process.argv[3]
 
 /**
  * Matches IP address regex and changes it to the public ip address of the
@@ -16,7 +18,7 @@ async function configureIP(filePath) {
         //Finda all instances that matches the ip address regex
         from: /(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/g,
         //Replace matches to to
-        to: 'Replacement',
+        to: ipAddress,
     }
 
     try {
@@ -49,9 +51,9 @@ async function traverse(rootFolder) {
                 }
 
                 if (stat.isFile()) { //If it is a file, change all ip instances
+                    console.log("Changing IP at %s", fromPath)
                     await configureIP(fromPath)
                 } else if (stat.isDirectory()) { //If directory recursively traverse
-                    console.log("'%s' is a directory.", fromPath);
                     traverse(fromPath)
                 }
             });
@@ -65,8 +67,17 @@ async function traverse(rootFolder) {
  * i.e node consistentIP.js rootFolder
  */
 async function main() {
+
+    if (process.argv[3]){ //If we specify and 2nd argument then we'll use that argument
+        ipAddress = process.argv[3]
+    } else { //Use this server's public ip address
+        ipAddress = await publicIp.v4()
+    }
+
     rootFolder = process.argv[2]
     traverse(rootFolder)
+    
+
 }
 
 main()
