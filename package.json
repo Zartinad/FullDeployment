@@ -18,7 +18,7 @@
   "homepage": "https://github.com/Zartinad/FullDeployment#readme",
   "dependencies": {
     "async": "^3.1.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "fs": "0.0.1-security",
     "inquirer": "^6.5.0",
     "mocha": "^6.2.0",
